@@ -3,9 +3,14 @@ project(nhz C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(nhz main.c animacio.c animacio.h vezerles.c felszabadito.c Mezok_kezelese.c Minden_inicializalasi_elem.c rajzok.c SDL_letrehozas.c structurak.h utkereses.c utkereses.h)
+
+add_executable(nhz src/main.c src/animacio.c headers/animacio.h src/vezerles.c src/felszabadito.c src/Mezok_kezelese.c src/Minden_inicializalasi_elem.c src/rajzok.c src/SDL_letrehozas.c headers/structurak.h src/utkereses.c headers/utkereses.h headers/debugmalloc.h headers/felszabadito.h headers/Mezok_kezelese.h headers/Minden_inicializalasi_elem.h headers/rajzok.h headers/SDL_letrehozas.h headers/vezerles.h)
 target_link_libraries(nhz m)
 INCLUDE(FindPkgConfig)
+
+include_directories(src)
+include_directories(headers)
+include_directories(textures)
 
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
 PKG_SEARCH_MODULE(SDL2GFX REQUIRED SDL2_gfx)
